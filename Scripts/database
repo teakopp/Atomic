@@ -1,2 +1,4 @@
 #!/bin/bash
-mongo --eval "db.adminCommand('listDatabases')"
+
+#creates and populates database
+node server/create-database.js
