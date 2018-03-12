@@ -5,22 +5,24 @@ const hostname = '127.0.0.1'
 const port = 3000
 const express = require('express')
 const app = express()
+const cors = require('cors')
+const url = 'mongodb://localhost:27017/atomic'
 
+app.use(cors())
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text-plain');
-  res.end('Hello World\n');
+app.get("/", (req, res) => {
 
-  MongoClient.connect('mongodb://localhost:27017/Atomic', function(err, db) {
-  // If a database called "myNewDatabase" exists, it is used, otherwise it gets created.
+  MongoClient.connect(url, (err, client) => {
+    let db = client.db('atomic')
 
-  let collection = db.collection('characters');
-    // If a collection called "myNewCollection" exists, it is used, otherwise it gets created.
+    db.collection('players').find().toArray( (req, result) => {
+       if (err) throw err
+       res.send(result)
+       console.log('Get on port 3000');
+     })
   });
-
 })
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`)
+app.listen(3000, () => {
+  console.log('Listening on port 3000...');
 })
