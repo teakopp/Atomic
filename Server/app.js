@@ -8,6 +8,7 @@ const app = express()
 const cors = require('cors')
 const url = 'mongodb://localhost:27017/atomic'
 
+//turn off in production
 app.use(cors())
 
 app.get("/", (req, res) => {
