@@ -1,4 +1,0 @@
-#!/bin/bash
-
-#creates and populates database
-node server/create-database.js
