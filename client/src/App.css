@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Futura;
 }
 
 .App-logo {
@@ -15,7 +16,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .App-intro {

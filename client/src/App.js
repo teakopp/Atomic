@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
+import 'whatwg-fetch'
 import logo from './logo.svg';
+import background from './images/artistic.jpg'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div>
+          <header className="App-header" style={{backgroundImage: "url(" + background + ")"}}>
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Welcome Atomic User</h1>
+          </header>
+
+        </div>
       </div>
     );
   }
